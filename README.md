@@ -1,32 +1,34 @@
 ## An uncomplicated website developed in Go, supported by a CI/CD pipeline managed through Jenkins✌️
 
 ### 🔰 Overview 
+
+#### 🟢 The website is running in localhost. To update and push the changes in the server, we have Jenkins for CI.
 ![](./images/overview.png)
-#### 🟢 The website is running in localhost. To update and push the changes in the server we have Jenkins for CI. 
 
-![](./images/server.png)
 #### 🟢 Here I prepared the Jenkins server for CI
+![](./images/server.png)
 
+#### 🟢 Let's update the code and push it to the git repository
 ![](./images/code.png)
-#### 🟢 Lets update the code and push it to the git repository
 
-![](./images/g.png)
 #### 🟢 The code repository has been updated
+![](./images/g.png)
 
-![](./images/gw.png)
 #### 🟢 Update got triggered by the GitHub webhook
+![](./images/gw.png)
 
-![](./images/j1.png)
 #### 🟢 Jenkins pulling the updated code repository and executing shell commands
+![](./images/j1.png)
 
-![](./images/j2.png)
 #### 🟢 Jenkins workspace after pulling the latest repo
+![](./images/j2.png)
 
-![](./images/pu.png)
 #### 🟢 The website is running on Jenkins server port 8091
+![](./images/pu.png)
 
-![](./images/pu2.png)
 #### 🟢 The website functionalities are working as expected
+![](./images/pu2.png)
+
 
 
 ### 🖥️ Servers Setup 
