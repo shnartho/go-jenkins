@@ -2,21 +2,29 @@
 
 ### 🔰 Overview 
 ![](./images/overview.png)
-#### 🟢 The website is running in localhost. To update and push the changes in the server we have jenkins for CI. 
+#### 🟢 The website is running in localhost. To update and push the changes in the server we have Jenkins for CI. 
+
 ![](./images/server.png)
-#### 🟢 Here I prepared the jenkins server for CI
+#### 🟢 Here I prepared the Jenkins server for CI
+
 ![](./images/code.png)
-#### 🟢 Lets update the code and push it to git repository
+#### 🟢 Lets update the code and push it to the git repository
+
 ![](./images/g.png)
 #### 🟢 The code repository has been updated
+
 ![](./images/gw.png)
-#### 🟢 Update got triggered by the github webhook
+#### 🟢 Update got triggered by the GitHub webhook
+
 ![](./images/j1.png)
-#### 🟢 Jenkins pulling the updated code repository and executing shell comands
+#### 🟢 Jenkins pulling the updated code repository and executing shell commands
+
 ![](./images/j2.png)
-#### 🟢 Jenkins workspace after pulling latest repo
+#### 🟢 Jenkins workspace after pulling the latest repo
+
 ![](./images/pu.png)
-#### 🟢 The website is running in jenkins server port 8091
+#### 🟢 The website is running on Jenkins server port 8091
+
 ![](./images/pu2.png)
 #### 🟢 The website functionalities are working as expected
 
