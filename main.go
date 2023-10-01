@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"fmt"
 	"html/template"
 	"io"
@@ -30,11 +31,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	images, err := getUploadImages()
+	images, err := getUploadImagesAsBase64()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
 	data := struct {
 		Title  string
 		Images []string
@@ -72,7 +74,7 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func getUploadImages() ([]string, error) {
+func getUploadImagesAsBase64() ([]string, error) {
 	files, err := filepath.Glob(filepath.Join(uploadDir, "*"))
 	if err != nil {
 		return nil, err
@@ -80,8 +82,34 @@ func getUploadImages() ([]string, error) {
 
 	var images []string
 	for _, file := range files {
-		filename := filepath.Base(file)
-		images = append(images, filename)
+		base64Image, err := encodeImageToBase64(file)
+		if err != nil {
+			return nil, err
+		}
+		images = append(images, base64Image)
 	}
 	return images, nil
+}
+
+func encodeImageToBase64(filePath string) (string, error) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return "", err
+	}
+	defer file.Close()
+
+	fi, err := file.Stat()
+	if err != nil {
+		return "", err
+	}
+
+	size := fi.Size()
+	buffer := make([]byte, size)
+	_, err = file.Read(buffer)
+	if err != nil {
+		return "", err
+	}
+
+	base64Image := base64.StdEncoding.EncodeToString(buffer)
+	return base64Image, nil
 }

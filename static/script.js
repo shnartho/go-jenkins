@@ -1,20 +1,19 @@
 // static/script.js
 
 // Function to handle form submission
-function handleSubmit(event) {
-    //event.preventDefault(); // Prevent the form from submitting normally
+function handleSubmitForContact(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
 
     // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    /* Basic validation
+    // Basic validation
     if (!name || !email || !message) {
         alert('Please fill in all fields');
         return;
     }
-    */
    
     // Simulate a submission (replace this with your actual form submission logic)
     alert(`Form submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
@@ -25,11 +24,20 @@ function handleSubmit(event) {
     document.getElementById('message').value = '';
 }
 
+function handleSubmitForUpload(event) {
+    console.log("upload success")
+} 
+
 // Add an event listener to the form
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', handleSubmit);
-}
+const uploadForm = document.getElementById('uploadForm')
+if (uploadForm){
+    uploadForm.addEventListener('submit', handleSubmitForUpload)
+} 
+
+const contactForm = document.getElementById('contactForm')
+if (contactForm){
+    contactForm.addEventListener('submit', handleSubmitForContact)
+} 
 
 // Function to handle button click
 function sayHello() {
